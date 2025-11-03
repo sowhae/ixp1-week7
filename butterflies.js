@@ -72,8 +72,8 @@ function makeButterfly (x=0, y=0, r=0, s=1){
       this.r+= 2;
       //this.r=this.r+2
       // makes butterflies flutter
-      this.y += 0.5;
-      // makes butterflies float down
+      this.y -= 0.5;
+      // makes butterflies float up
     butterfly(this.x, this.y, this.r, this.s);
     }
   }
