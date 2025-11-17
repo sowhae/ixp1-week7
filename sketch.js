@@ -67,61 +67,18 @@ class Cat{
   }
 }
 
-let cat1 = new Cat([255, 150, 100])
+let cat1 = new Cat([255, 120, 80])
 cat1.x = 200;
 cat1.y = 200;
 cat1.r = 0;
-
-let cat2 = new Cat([100, 100, 100])
-cat2.x = 100;
-cat2.y = 100;
-cat2.s = 0.6
-
-let cat3 = new Cat([255, 200, 150])
-cat3.x = 300;
-cat3.y = 150;
-cat3.s = 0.7
-
-let cat4 = new Cat([200, 180, 160])
-cat4.x = 80;
-cat4.y = 250;
-cat4.s = 0.8
-
-let cat5 = new Cat([180, 140, 120])
-cat5.x = 320;
-cat5.y = 280;
-cat5.s = 0.5
+cat1.s = 1;
 
 
 function draw(){
-  background(200, 230, 255)
+  background(150, 200, 255)
 
-  // Cat 1 - center bouncing
-  cat1.y = 200 + abs(sin(frameCount * 3)) * 60;
-  cat1.r = sin(frameCount * 4) * 15;
+  // Cat moving across screen
+  cat1.x = (frameCount * 2) % 500 - 50;
+  cat1.y = 200 + sin(frameCount * 3) * 20;
   cat1.draw();
-
-  // Cat 2 - running in circle
-  cat2.x = 200 + cos(frameCount * 2) * 100;
-  cat2.y = 200 + sin(frameCount * 2) * 100;
-  cat2.r = frameCount * 2;
-  cat2.draw();
-
-  // Cat 3 - pacing left and right
-  cat3.x = 200 + sin(frameCount * 1.5) * 150;
-  cat3.y = 100 + sin(frameCount * 5) * 10;
-  cat3.r = sin(frameCount * 1.5) * 20;
-  cat3.draw();
-
-  // Cat 4 - jumping up and down
-  cat4.y = 300 - abs(sin(frameCount * 2)) * 150;
-  cat4.x = 80 + cos(frameCount) * 20;
-  cat4.r = cos(frameCount * 3) * 10;
-  cat4.draw();
-
-  // Cat 5 - figure-8 pattern
-  cat5.x = 320 + sin(frameCount) * 60;
-  cat5.y = 200 + sin(frameCount * 2) * 100;
-  cat5.r = -frameCount * 1.2;
-  cat5.draw();
 }
