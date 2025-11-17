@@ -83,7 +83,7 @@ function draw(){
   // Green floor
   fill(100, 200, 100);
   noStroke();
-  rect(0, 300, 400, 100);
+  rect(0, 270, 400, 130);
 
   // Cat moving across screen
   cat1.x = (frameCount * 2) % 500 - 50;
