@@ -22,14 +22,14 @@ class Cat{
 
     // Body
     fill(this.color);
-    ellipse(185, 180, 70, 50);
+    ellipse(190, 180, 90, 60);
 
     // Legs
     fill(this.color);
-    rect(160, 200, 10, 30);
-    rect(180, 200, 10, 30);
-    rect(195, 200, 10, 30);
-    rect(215, 200, 10, 30);
+    rect(155, 205, 12, 35);
+    rect(180, 205, 12, 35);
+    rect(200, 205, 12, 35);
+    rect(225, 205, 12, 35);
 
     // Head
     fill(this.color);
