@@ -80,6 +80,11 @@ cat1.s = 1;
 function draw(){
   background(150, 200, 255)
 
+  // Green floor
+  fill(100, 200, 100);
+  noStroke();
+  rect(0, 300, 400, 100);
+
   // Cat moving across screen
   cat1.x = (frameCount * 2) % 500 - 50;
   cat1.y = 200 + sin(frameCount * 3) * 20;
