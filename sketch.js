@@ -20,13 +20,16 @@ class Cat{
 
     noStroke();
 
-    // Tail
-    fill(this.color);
-    ellipse(140, 190, 15, 60);
-
     // Body
     fill(this.color);
-    ellipse(175, 185, 60, 50);
+    ellipse(185, 180, 70, 50);
+
+    // Legs
+    fill(this.color);
+    rect(160, 200, 10, 30);
+    rect(180, 200, 10, 30);
+    rect(195, 200, 10, 30);
+    rect(215, 200, 10, 30);
 
     // Head
     fill(this.color);
