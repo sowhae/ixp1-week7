@@ -3,7 +3,7 @@ function setup(){
   angleMode(DEGREES)
 }
 
-class Jellyfish{
+class Cat{
   constructor(color){
     this.color = color;
     this.x = 0;
@@ -18,91 +18,110 @@ class Jellyfish{
     scale(this.s)
     translate(-200,-200)
 
-    // Bell/Head of jellyfish
     noStroke();
-    fill(this.color[0], this.color[1], this.color[2], 180);
-    ellipse(200, 150, 70, 60);
 
-    // Inner bell detail
-    fill(this.color[0] + 30, this.color[1] + 30, this.color[2] + 30, 120);
-    ellipse(200, 150, 50, 40);
+    // Tail
+    fill(this.color);
+    ellipse(140, 190, 15, 60);
 
-    // Tentacles
-    stroke(this.color[0], this.color[1], this.color[2], 150);
-    strokeWeight(3);
-    noFill();
-    bezier(180, 180, 175, 200, 170, 220, 165, 250);
-    bezier(190, 180, 188, 205, 186, 230, 184, 260);
-    bezier(200, 180, 200, 210, 200, 240, 200, 270);
-    bezier(210, 180, 212, 205, 214, 230, 216, 260);
-    bezier(220, 180, 225, 200, 230, 220, 235, 250);
+    // Body
+    fill(this.color);
+    ellipse(175, 185, 60, 50);
 
-    // Spots on bell
-    noStroke();
-    fill(255, 255, 255, 100);
-    ellipse(190, 145, 15, 12);
-    ellipse(210, 150, 10, 8);
+    // Head
+    fill(this.color);
+    ellipse(200, 165, 55, 50);
+
+    // Ears
+    triangle(180, 145, 188, 125, 195, 145);
+    triangle(205, 145, 212, 125, 220, 145);
+
+    // Inner ears
+    fill(255, 180, 200);
+    triangle(183, 145, 188, 130, 192, 145);
+    triangle(208, 145, 212, 130, 217, 145);
+
+    // Eyes
+    fill(255);
+    ellipse(190, 165, 12, 14);
+    ellipse(210, 165, 12, 14);
+
+    // Pupils
+    fill(40);
+    ellipse(190, 167, 6, 8);
+    ellipse(210, 167, 6, 8);
+
+    // Nose
+    fill(255, 150, 170);
+    triangle(198, 173, 202, 173, 200, 177);
+
+    // Whiskers
+    stroke(100);
+    strokeWeight(1);
+    line(170, 170, 150, 168);
+    line(170, 175, 150, 175);
+    line(230, 170, 250, 168);
+    line(230, 175, 250, 175);
 
     pop()
   }
 }
 
-let jelly1 = new Jellyfish([255, 100, 150])
-jelly1.x = 200;
-jelly1.y = 200;
-jelly1.r = 0;
+let cat1 = new Cat([255, 150, 100])
+cat1.x = 200;
+cat1.y = 200;
+cat1.r = 0;
 
-let jelly2 = new Jellyfish([100, 200, 255])
-jelly2.x = 100;
-jelly2.y = 100;
-jelly2.s = 0.6
+let cat2 = new Cat([100, 100, 100])
+cat2.x = 100;
+cat2.y = 100;
+cat2.s = 0.6
 
-let jelly3 = new Jellyfish([255, 180, 100])
-jelly3.x = 300;
-jelly3.y = 150;
-jelly3.s = 0.8
+let cat3 = new Cat([255, 200, 150])
+cat3.x = 300;
+cat3.y = 150;
+cat3.s = 0.7
 
-let jelly4 = new Jellyfish([150, 255, 200])
-jelly4.x = 80;
-jelly4.y = 250;
-jelly4.s = 0.7
+let cat4 = new Cat([200, 180, 160])
+cat4.x = 80;
+cat4.y = 250;
+cat4.s = 0.8
 
-let jelly5 = new Jellyfish([200, 150, 255])
-jelly5.x = 320;
-jelly5.y = 280;
-jelly5.s = 0.5
+let cat5 = new Cat([180, 140, 120])
+cat5.x = 320;
+cat5.y = 280;
+cat5.s = 0.5
 
 
 function draw(){
-  background(10, 20, 60) // Deep ocean blue
+  background(200, 230, 255)
 
-  // Jelly 1 - center pulsing
-  jelly1.y = 200 + sin(frameCount * 1.5) * 40;
-  jelly1.s = 0.8 + abs(sin(frameCount * 2)) * 0.4;
-  jelly1.r = sin(frameCount * 2) * 8;
-  jelly1.draw();
+  // Cat 1 - center bouncing
+  cat1.y = 200 + abs(sin(frameCount * 3)) * 60;
+  cat1.r = sin(frameCount * 4) * 15;
+  cat1.draw();
 
-  // Jelly 2 - circular drift
-  jelly2.x = 100 + cos(frameCount * 1.2) * 60;
-  jelly2.y = 100 + sin(frameCount * 1.2) * 60;
-  jelly2.r = cos(frameCount * 1.5) * 12;
-  jelly2.draw();
+  // Cat 2 - running in circle
+  cat2.x = 200 + cos(frameCount * 2) * 100;
+  cat2.y = 200 + sin(frameCount * 2) * 100;
+  cat2.r = frameCount * 2;
+  cat2.draw();
 
-  // Jelly 3 - wavy horizontal
-  jelly3.x = 200 + sin(frameCount * 1.8) * 150;
-  jelly3.y = 150 + sin(frameCount * 3) * 20;
-  jelly3.r = sin(frameCount * 2.5) * 10;
-  jelly3.draw();
+  // Cat 3 - pacing left and right
+  cat3.x = 200 + sin(frameCount * 1.5) * 150;
+  cat3.y = 100 + sin(frameCount * 5) * 10;
+  cat3.r = sin(frameCount * 1.5) * 20;
+  cat3.draw();
 
-  // Jelly 4 - vertical float
-  jelly4.y = 200 + sin(frameCount) * 140;
-  jelly4.x = 80 + cos(frameCount * 2) * 25;
-  jelly4.r = -cos(frameCount * 2) * 15;
-  jelly4.draw();
+  // Cat 4 - jumping up and down
+  cat4.y = 300 - abs(sin(frameCount * 2)) * 150;
+  cat4.x = 80 + cos(frameCount) * 20;
+  cat4.r = cos(frameCount * 3) * 10;
+  cat4.draw();
 
-  // Jelly 5 - spiral motion
-  jelly5.x = 320 + cos(frameCount * 1.5) * 70;
-  jelly5.y = 200 + sin(frameCount * 1.5) * 120;
-  jelly5.r = frameCount * 1.5;
-  jelly5.draw();
+  // Cat 5 - figure-8 pattern
+  cat5.x = 320 + sin(frameCount) * 60;
+  cat5.y = 200 + sin(frameCount * 2) * 100;
+  cat5.r = -frameCount * 1.2;
+  cat5.draw();
 }
